@@ -1,158 +1,162 @@
 /* CSSリセットと基本スタイル */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Noto Sans JP', sans-serif;
-    background-color: #f0f2f5;
-    color: #333;
-    line-height: 1.6;
-    padding: 2rem 1rem;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* ヘッダー */
-.header {
-    text-align: center;
-    padding: 2rem 0;
-    margin-bottom: 2rem;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.header h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #2c3e50;
-    margin-bottom: 0.5rem;
-}
-
-.header p {
-    font-size: 1rem;
-    color: #7f8c8d;
-}
-
-/* キャラクターリスト */
-.character-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-}
-
-/* キャラクターカード */
-.character-card {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none;
-    color: inherit;
-    /* PCではフレックスボックスで横並び */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.character-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.character-card img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    display: block;
-}
-
-.character-info {
-    padding: 1.5rem;
-    width: 100%;
-}
-
-.character-info h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #34495e;
-    margin-bottom: 0.2rem;
-}
-
-/* 読み仮名のスタイル */
-.character-info .kana {
-    display: block;
-    font-size: 0.8rem;
-    color: #95a5a6;
-    margin-bottom: 0.5rem;
-}
-
-.character-info p {
-    font-size: 0.9rem;
-    color: #7f8c8d;
-}
-
-/* フッター */
-.footer {
-    text-align: center;
-    padding: 2rem 0;
-    color: #95a5a6;
-    font-size: 0.8rem;
-}
-
-/* スマートフォン向けレスポンシブデザイン */
-@media (max-width: 768px) {
-    body {
-        padding: 1rem;
-    }
-    
-    .header h1 {
-        font-size: 2rem;
-    }
-
-    /* スマホではグリッドレイアウトを変更してアイコンを横に並べる */
-    .character-list {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        gap: 0.5rem;
-    }
-    
-    .character-card {
-        flex-direction: column;
-        text-align: center;
-        padding: 0.5rem;
-        box-shadow: none;
-    }
-    
-    .character-card img {
-        width: 100%;
-        height: 100px; /* アイコンサイズを固定 */
-        border-radius: 50%; /* 丸いアイコンにする */
-        object-fit: cover;
-    }
-
-    .character-info {
-        padding: 0.5rem 0;
-        text-align: center;
-    }
-
-    .character-info h2,
-    .character-info p {
-        font-size: 0.75rem;
-        margin: 0;
-        white-space: nowrap; /* テキストの折り返しを防ぐ */
-        overflow: hidden; /* はみ出したテキストを隠す */
-        text-overflow: ellipsis; /* ...で省略 */
-    }
-
-    .character-info .kana {
-        display: none; /* スマホでは読み仮名を非表示にする */
-    }
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* ヘッダー */
+        .header {
+            text-align: center;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header p {
+            font-size: 1rem;
+            color: #7f8c8d;
+        }
+        
+        /* キャラクターリスト */
+        .character-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        /* キャラクターカード */
+        .character-card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex; /* PCでもflexboxを使用 */
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .character-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .character-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .character-info {
+            padding: 1.5rem;
+            width: 100%;
+        }
+        
+        .character-info h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #34495e;
+            margin-bottom: 0.2rem;
+        }
+        
+        /* 読み仮名のスタイル */
+        .character-info .kana {
+            display: block;
+            font-size: 0.8rem;
+            color: #95a5a6;
+            margin-bottom: 0.5rem;
+        }
+        
+        .character-info p {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+        
+        /* フッター */
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: #95a5a6;
+            font-size: 0.8rem;
+        }
+        
+        /* スマートフォン向けレスポンシブデザイン */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem; /* スマホではヘッダーの文字を小さく */
+            }
+        
+            .header p {
+                font-size: 0.8rem;
+            }
+        
+            /* スマホではグリッドレイアウトを変更してアイコンを横に並べる */
+            .character-list {
+                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* アイコンを横に3-5つ並べる */
+                gap: 0.5rem;
+                padding: 1rem 0;
+            }
+            
+            .character-card {
+                background-color: transparent; /* 背景色を透明に */
+                box-shadow: none; /* 影を非表示に */
+                border-radius: 0;
+            }
+            
+            .character-card:hover {
+                transform: none; /* ホバー時の効果を無効化 */
+            }
+            
+            .character-card img {
+                width: 80px; /* アイコンサイズを固定 */
+                height: 80px;
+                border-radius: 50%; /* 丸いアイコンにする */
+                object-fit: cover;
+            }
+        
+            .character-info {
+                padding: 0.5rem 0;
+                text-align: center;
+            }
+        
+            .character-info h2 {
+                font-size: 0.8rem; /* 名前を小さく */
+                font-weight: 400;
+            }
+        
+            .character-info .kana,
+            .character-info p {
+                display: none; /* 読み仮名と説明を非表示にする */
+            }
+        }
