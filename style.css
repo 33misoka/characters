@@ -13,7 +13,7 @@ body {
 }
 
 .container {
-    max-width: 1200px; /* 元の幅に戻します */
+    max-width: 1200px;
     margin: 0 auto;
     padding: 2rem 1rem;
 }
@@ -43,9 +43,8 @@ body {
 /* キャラクターリスト */
 .character-list {
     display: grid;
-    /* 最小幅を280pxに戻し、4枚表示を基本とします */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem; /* 余白も元に戻します */
+    gap: 2rem;
 }
 
 /* キャラクターカード */
@@ -57,7 +56,6 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
     color: inherit;
-    /* flexboxの指定を削除 */
 }
 
 .character-card:hover {
@@ -67,14 +65,13 @@ body {
 
 .character-card img {
     width: 100%;
-    height: 300px; /* 元の高さに戻します */
-    /* aspect-ratioの指定を削除 */
+    height: 300px;
     object-fit: cover;
     display: block;
 }
 
 .character-info {
-    padding: 1.5rem; /* 元のパディングに戻します */
+    padding: 1.5rem;
     text-align: center;
 }
 
