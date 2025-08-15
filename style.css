@@ -13,7 +13,7 @@ body {
 }
 
 .container {
-    max-width: 1000px; /* 全体の幅を小さく変更 */
+    max-width: 1000px;
     margin: 0 auto;
     padding: 2rem 1rem;
 }
@@ -43,9 +43,9 @@ body {
 /* キャラクターリスト */
 .character-list {
     display: grid;
-    /* minmaxの値を150pxにすることで、5人以上表示できる可能性が高まります。 */
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
-    gap: 2rem;
+    /* カードの最小幅をさらに小さく調整し、確実に5人表示されるようにします */
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); 
+    gap: 1.5rem; /* カード間の余白を小さく調整 */
 }
 
 /* キャラクターカード */
@@ -66,25 +66,25 @@ body {
 
 .character-card img {
     width: 100%;
-    height: 180px; /* 画像の高さを調整 */
+    height: 180px;
     object-fit: cover;
     display: block;
 }
 
 .character-info {
-    padding: 1rem; /* パディングを調整 */
+    padding: 1rem;
     text-align: center;
 }
 
 .character-info h2 {
-    font-size: 1.2rem; /* フォントサイズを小さく調整 */
+    font-size: 1.2rem;
     font-weight: 700;
     color: #34495e;
     margin-bottom: 0.5rem;
 }
 
 .character-info p {
-    font-size: 0.8rem; /* フォントサイズを小さく調整 */
+    font-size: 0.8rem;
     color: #7f8c8d;
 }
 
