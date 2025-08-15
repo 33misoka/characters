@@ -13,7 +13,7 @@ body {
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 1200px; /* 元の幅に戻します */
     margin: 0 auto;
     padding: 2rem 1rem;
 }
@@ -43,8 +43,9 @@ body {
 /* キャラクターリスト */
 .character-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    gap: 1.5rem;
+    /* 最小幅を280pxに戻し、4枚表示を基本とします */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem; /* 余白も元に戻します */
 }
 
 /* キャラクターカード */
@@ -56,9 +57,7 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
     color: inherit;
-    /* カード全体の縦横比を調整するために、flexboxを使用します */
-    display: flex;
-    flex-direction: column;
+    /* flexboxの指定を削除 */
 }
 
 .character-card:hover {
@@ -68,33 +67,27 @@ body {
 
 .character-card img {
     width: 100%;
-    /* 画像の高さを自動調整し、正方形に近づけます */
-    height: auto;
-    /* 縦横比を1:1に保つため、aspect-ratioを使用します */
-    aspect-ratio: 1 / 1;
+    height: 300px; /* 元の高さに戻します */
+    /* aspect-ratioの指定を削除 */
     object-fit: cover;
     display: block;
 }
 
 .character-info {
-    padding: 1rem;
+    padding: 1.5rem; /* 元のパディングに戻します */
     text-align: center;
-    /* 情報部分のパディングを調整して、全体の高さを短くします */
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
 }
 
 .character-info h2 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #34495e;
-    margin-bottom: 0.2rem; /* h2とpの間の余白を調整 */
+    margin-bottom: 0.5rem;
 }
 
 .character-info p {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: #7f8c8d;
-    margin-bottom: 0; /* pタグの下の余白をなくす */
 }
 
 /* フッター */
