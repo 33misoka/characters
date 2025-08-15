@@ -1,134 +1,158 @@
+/* CSSリセットと基本スタイル */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    /* CSSリセットと基本スタイル */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+    padding: 2rem 1rem;
+}
 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ヘッダー */
+.header {
+    text-align: center;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.header p {
+    font-size: 1rem;
+    color: #7f8c8d;
+}
+
+/* キャラクターリスト */
+.character-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* キャラクターカード */
+.character-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    /* PCではフレックスボックスで横並び */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.character-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.character-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.character-info {
+    padding: 1.5rem;
+    width: 100%;
+}
+
+.character-info h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #34495e;
+    margin-bottom: 0.2rem;
+}
+
+/* 読み仮名のスタイル */
+.character-info .kana {
+    display: block;
+    font-size: 0.8rem;
+    color: #95a5a6;
+    margin-bottom: 0.5rem;
+}
+
+.character-info p {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+/* フッター */
+.footer {
+    text-align: center;
+    padding: 2rem 0;
+    color: #95a5a6;
+    font-size: 0.8rem;
+}
+
+/* スマートフォン向けレスポンシブデザイン */
+@media (max-width: 768px) {
     body {
-        font-family: 'Noto Sans JP', sans-serif;
-        background-color: #f0f2f5;
-        color: #333;
-        line-height: 1.6;
-        padding: 2rem 1rem; /* 全体の余白を修正 */
+        padding: 1rem;
     }
-
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    /* ヘッダー */
-    .header {
-        text-align: center;
-        padding: 2rem 0;
-        margin-bottom: 2rem;
-        background-color: #fff;
-        border-radius: 12px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
+    
     .header h1 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: #2c3e50;
-        margin-bottom: 0.5rem;
+        font-size: 2rem;
     }
 
-    .header p {
-        font-size: 1rem;
-        color: #7f8c8d;
-    }
-
-    /* キャラクターリスト */
+    /* スマホではグリッドレイアウトを変更してアイコンを横に並べる */
     .character-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 0.5rem;
     }
-
-    /* キャラクターカード */
+    
     .character-card {
-        background-color: #fff;
-        border-radius: 12px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        text-decoration: none;
-        color: inherit;
-        display: flex; /* 追加: PCでもflexboxでレイアウト */
-        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 0.5rem;
+        box-shadow: none;
     }
-
-    .character-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-
+    
     .character-card img {
-        width: 120px; /* PCでは固定幅 */
-        height: 120px; /* PCでは固定高 */
+        width: 100%;
+        height: 100px; /* アイコンサイズを固定 */
+        border-radius: 50%; /* 丸いアイコンにする */
         object-fit: cover;
-        flex-shrink: 0;
     }
 
     .character-info {
-        padding: 1rem 1.5rem;
-        text-align: left; /* 追加: PCでは左寄せ */
-    }
-
-    .character-info h2 {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #34495e;
-        margin-bottom: 0.2rem;
-    }
-
-    /* 読み仮名のスタイル */
-    .character-info .kana {
-        display: block;
-        font-size: 0.8rem;
-        color: #95a5a6;
-        margin-bottom: 0.5rem;
-    }
-
-    .character-info p {
-        font-size: 0.9rem;
-        color: #7f8c8d;
-    }
-
-    /* フッター */
-    .footer {
+        padding: 0.5rem 0;
         text-align: center;
-        padding: 2rem 0;
-        color: #95a5a6;
-        font-size: 0.8rem;
     }
 
-    /* スマートフォン向けレスポンシブデザイン */
-    @media (max-width: 768px) {
-        body {
-            padding: 1rem; /* スマホでは余白を減らす */
-        }
-        
-        .header h1 {
-            font-size: 2rem;
-        }
-
-        .character-card {
-            flex-direction: column; /* スマホでは縦並びに変更 */
-            text-align: center;
-        }
-
-        .character-card img {
-            width: 100%; /* スマホでは幅いっぱい */
-            height: auto;
-            aspect-ratio: 1 / 1;
-        }
-        
-        .character-info {
-            padding: 1.5rem;
-            text-align: center;
-        }
+    .character-info h2,
+    .character-info p {
+        font-size: 0.75rem;
+        margin: 0;
+        white-space: nowrap; /* テキストの折り返しを防ぐ */
+        overflow: hidden; /* はみ出したテキストを隠す */
+        text-overflow: ellipsis; /* ...で省略 */
     }
+
+    .character-info .kana {
+        display: none; /* スマホでは読み仮名を非表示にする */
+    }
+}
