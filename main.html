@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Characters - トップページ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSSリセットと基本スタイル */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* ヘッダー */
+        .header {
+            text-align: center;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1rem;
+            color: #7f8c8d;
+        }
+
+        /* キャラクターリスト */
+        .character-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        /* キャラクターカード */
+        .character-card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .character-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .character-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .character-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .character-info h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #34495e;
+            margin-bottom: 0.5rem;
+        }
+
+        .character-info p {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+
+        /* フッター */
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: #95a5a6;
+            font-size: 0.8rem;
+        }
+
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .character-card img {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ヘッダーセクション -->
+        <header class="header">
+            <h1>My Original Characters</h1>
+            <p>ここにあなたのキャラクターの世界観や紹介文を書きましょう。</p>
+        </header>
+
+        <!-- キャラクターカードのリスト -->
+        <main class="character-list">
+            <!-- キャラクターカード1 -->
+            <a href="character1.html" class="character-card">
+                <img src="https://placehold.co/600x600/b0e0e6/ffffff?text=Character+1" alt="キャラクター1の画像">
+                <div class="character-info">
+                    <h2>キャラクター1の名前</h2>
+                    <p>簡単な説明文。性格や設定を簡潔に紹介。</p>
+                </div>
+            </a>
+
+            <!-- キャラクターカード2 -->
+            <a href="character2.html" class="character-card">
+                <img src="https://placehold.co/600x600/d8bfd8/ffffff?text=Character+2" alt="キャラクター2の画像">
+                <div class="character-info">
+                    <h2>キャラクター2の名前</h2>
+                    <p>簡単な説明文。性格や設定を簡潔に紹介。</p>
+                </div>
+            </a>
+
+            <!-- キャラクターカード3 -->
+            <a href="character3.html" class="character-card">
+                <img src="https://placehold.co/600x600/98fb98/ffffff?text=Character+3" alt="キャラクター3の画像">
+                <div class="character-info">
+                    <h2>キャラクター3の名前</h2>
+                    <p>簡単な説明文。性格や設定を簡潔に紹介。</p>
+                </div>
+            </a>
+
+            <!-- キャラクターカード4 -->
+            <a href="character4.html" class="character-card">
+                <img src="https://placehold.co/600x600/ffb6c1/ffffff?text=Character+4" alt="キャラクター4の画像">
+                <div class="character-info">
+                    <h2>キャラクター4の名前</h2>
+                    <p>簡単な説明文。性格や設定を簡潔に紹介。</p>
+                </div>
+            </a>
+            
+        </main>
+    </div>
+
+    <!-- フッターセクション -->
+    <footer class="footer">
+        <p>&copy; 2024 Your Name or Project Name</p>
+    </footer>
+</body>
+</html>
