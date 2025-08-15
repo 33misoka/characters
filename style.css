@@ -43,7 +43,8 @@ body {
 /* キャラクターリスト */
 .character-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* minmaxの値を小さく変更 */
+    /* minmaxの値を150pxにすることで、5人以上表示できる可能性が高まります。 */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
     gap: 2rem;
 }
 
