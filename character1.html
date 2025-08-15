@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>キャラクターの名前 - プロフィール</title>
+    <!-- Google Fontsの読み込み（Noto Sans JP） -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSSリセットと基本スタイル */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* 戻るリンク */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            color: #3498db;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid #3498db;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        /* キャラクター詳細セクション */
+        .character-detail {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex; /* Flexboxで横並びに */
+            gap: 2rem;
+            flex-wrap: wrap; /* 画面が狭いときに折り返す */
+            align-items: flex-start;
+        }
+        
+        /* 立ち絵コンテナとボタン */
+        .stand-image-container {
+            position: relative;
+            text-align: center;
+            flex: 1 1 400px; /* 最小幅400pxで伸縮 */
+            order: 1; /* 最初のアイテムとして配置 */
+        }
+        
+        .stand-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .image-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 2rem;
+            line-height: 1;
+            transition: background 0.3s ease;
+            user-select: none;
+        }
+        
+        .image-nav-btn:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+        
+        .image-nav-btn.left {
+            left: 10px;
+        }
+
+        .image-nav-btn.right {
+            right: 10px;
+        }
+        
+        /* プロフィールとバックストーリーのコンテナ */
+        .text-content {
+            flex: 1 1 400px; /* 最小幅400pxで伸縮 */
+            order: 2; /* 2番目のアイテムとして配置 */
+        }
+        
+        /* ページ全体のタイトルを削除 */
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #34495e;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+        
+        .profile-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+        
+        .profile-list li:last-child {
+            border-bottom: none;
+        }
+
+        .profile-list strong {
+            display: inline-block;
+            width: 120px;
+            color: #555;
+        }
+
+        /* ギャラリーセクション */
+        .gallery-section {
+            width: 100%;
+            order: 3; /* 3番目のアイテムとして配置 */
+            margin-top: 2rem;
+        }
+
+        .gallery-section h2 {
+            margin-top: 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-grid a img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-grid a img:hover {
+            transform: scale(1.05);
+        }
+
+        /* フッター */
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: #95a5a6;
+            font-size: 0.8rem;
+        }
+        
+        @media (max-width: 768px) {
+            .character-detail {
+                flex-direction: column;
+            }
+            .stand-image-container, .text-content {
+                flex-basis: auto; /* 画面幅が狭い場合は縦に並びます */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">&lt; トップページに戻る</a>
+
+        <!-- キャラクター詳細セクション -->
+        <main class="character-detail">
+            <!-- 立ち絵セクション -->
+            <div class="stand-image-container">
+                <img id="main-stand-image" class="stand-image" src="https://placehold.co/600x800/b0e0e6/ffffff?text=Character+Stand+1" alt="キャラクターの立ち絵1">
+                <button class="image-nav-btn left" onclick="changeImage(-1)">&lt;</button>
+                <button class="image-nav-btn right" onclick="changeImage(1)">&gt;</button>
+            </div>
+            
+            <!-- プロフィールとバックストーリーのテキストコンテンツ -->
+            <div class="text-content">
+                <h1>キャラクターの名前</h1>
+                <p>ここにキャラクターのキャッチフレーズや簡単な紹介文を書きましょう。</p>
+
+                <h2>プロフィール</h2>
+                <ul class="profile-list">
+                    <li><strong>性別</strong>：男性</li>
+                    <li><strong>年齢</strong>：20歳</li>
+                    <li><strong>身長</strong>：175cm</li>
+                    <li><strong>性格</strong>：明るく前向き</li>
+                    <li><strong>スキル</strong>：炎の魔法</li>
+                </ul>
+            
+                <h2>バックストーリー</h2>
+                <p>
+                    ここにキャラクターの生い立ちや、これまでの物語を詳細に記述します。
+                    なぜこのスキルを持っているのか、どのような目的で行動しているのかなど、
+                    キャラクターの魅力を伝える情報を盛り込みましょう。
+                </p>
+            </div>
+            
+            <!-- イラストギャラリーセクション -->
+            <div class="gallery-section">
+                <h2>ギャラリー</h2>
+                <div class="gallery-grid">
+                    <a href="https://example.com/illustration1" target="_blank">
+                        <img src="https://placehold.co/400x400/b0e0e6/ffffff?text=Illustration+1" alt="イラスト1">
+                    </a>
+                    <a href="https://example.com/illustration2" target="_blank">
+                        <img src="https://placehold.co/400x400/d8bfd8/ffffff?text=Illustration+2" alt="イラスト2">
+                    </a>
+                    <a href="https://example.com/illustration3" target="_blank">
+                        <img src="https://placehold.co/400x400/98fb98/ffffff?text=Illustration+3" alt="イラスト3">
+                    </a>
+                    <a href="https://example.com/illustration4" target="_blank">
+                        <img src="https://placehold.co/400x400/ffb6c1/ffffff?text=Illustration+4" alt="イラスト4">
+                    </a>
+                    <a href="https://example.com/illustration5" target="_blank">
+                        <img src="https://placehold.co/400x400/99badd/ffffff?text=Illustration+5" alt="イラスト5">
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- フッターセクション -->
+    <footer class="footer">
+        <p>&copy; 2024 Your Name or Project Name</p>
+    </footer>
+
+    <script>
+        // キャラクターの立ち絵画像のURLをここに設定します
+        const standImages = [
+            "https://placehold.co/600x800/b0e0e6/ffffff?text=Character+Stand+1",
+            "https://placehold.co/600x800/d8bfd8/ffffff?text=Character+Stand+2",
+            "https://placehold.co/600x800/98fb98/ffffff?text=Character+Stand+3",
+            "https://placehold.co/600x800/ffb6c1/ffffff?text=Character+Stand+4"
+        ];
+        
+        let currentImageIndex = 0;
+        const mainImage = document.getElementById('main-stand-image');
+
+        function changeImage(direction) {
+            currentImageIndex += direction;
+
+            if (currentImageIndex < 0) {
+                currentImageIndex = standImages.length - 1;
+            } else if (currentImageIndex >= standImages.length) {
+                currentImageIndex = 0;
+            }
+
+            mainImage.src = standImages[currentImageIndex];
+        }
+    </script>
+</body>
+</html>
