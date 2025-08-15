@@ -79,6 +79,15 @@ body {
     font-size: 1.5rem;
     font-weight: 700;
     color: #34495e;
+    /* 読み仮名との間に余白を設ける */
+    margin-bottom: 0.2rem;
+}
+
+/* 読み仮名のスタイル */
+.character-info .kana {
+    display: block;
+    font-size: 0.8rem;
+    color: #95a5a6;
     margin-bottom: 0.5rem;
 }
 
