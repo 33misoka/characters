@@ -10,6 +10,7 @@ body {
     background-color: #f0f2f5;
     color: #333;
     line-height: 1.6;
+    padding: 2rem; /* 全体の余白を追加 */
 }
 
 .container {
